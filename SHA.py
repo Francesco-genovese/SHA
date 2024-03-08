@@ -1,3 +1,24 @@
+import os
+
+def file():
+    while True:
+        file_path = input("Inserisci il percorso completo del file di testo: ")
+        if os.path.exists(file_path):
+            with open(file_path, 'r') as file:
+                content_array = file.readlines()
+            print("Contenuto del file memorizzato nell'array:")
+            for line in content_array:
+                print(line.strip()) 
+            return content_array
+            break
+        else:
+            print("Il file specificato non esiste.")
+def data():
+    f = open("output.txt", "w") 
+    f.write("testo_originale: " + testo_da_hash)
+    f.write("\n HASH SHA-256: " + hash_calcolato)
+    f.close()
+
 def rotazione_dorsale(x, n):
     return ((x >> n) | (x << (32 - n))) & 0xFFFFFFFF
 
@@ -79,13 +100,23 @@ def sha256(messaggio):
     return hash_result
 
 # Esempio di utilizzo
-testo_da_hash = "Ciao, questo è un esempio di hash SHA in Python!"
-hash_calcolato = sha256(testo_da_hash.encode('utf-8'))
 
-print("Testo originale:", testo_da_hash)
-print("Hash SHA-256:", hash_calcolato)
-
-
+while True:
+    ds = input ("come vuoi criptare SHA ? da file o testo: (f / t): ")
+    if(ds == 'f' or ds == 'F'):
+        testo_da_hash = ' '.join(file())  
+        hash_calcolato = sha256(testo_da_hash.encode('utf-8')) 
+        print("Hash SHA-256:", hash_calcolato)
+        data()
+        break
+    elif(ds == 't' or ds == 'T'):
+        testo_da_hash = input ("inserisci il testo: ")
+        hash_calcolato = sha256(testo_da_hash.encode('utf-8')) 
+        print("Hash SHA-256:", hash_calcolato)
+        data()
+        break
+    else:
+        print("scelta non valida")
 
 #R3tr0
-#v 1.0
+#v 2.2
