@@ -1,0 +1,8 @@
+lunghezza primary: 10
+numero primari p: 811
+secondary primari q: 727
+il tuo testo criptato:  0x40a24 0x11056
+la tua chiave per decriptare: 132893
+il tuo testo decriptato(se lo hai richiesto): 0
+il tempo di esecuzione di questo per criptare: 0.002341032028198242 sec
+il tempo di esecuzione di questo per decriptare: 0 sec
